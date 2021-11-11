@@ -16,6 +16,7 @@ ionic-poc-razorpay
 - capacitor
 - angular 
 
-### Requirements 
-- 
+### Problem
 
+- Unable to complete the razorpay payment 
+- https://www.loom.com/share/233f14231f14496382c75de1f77e1cda
