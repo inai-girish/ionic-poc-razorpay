@@ -9,6 +9,11 @@ ionic-poc-razorpay
     ionic capacitor add ios
     # note :- you can add android too
     ionic cap run ios -l --external
+    
+    #android
+    ionic capacitor add android
+    ionic cap run android -l --external
+    
 ```
 ### Stack 
 
