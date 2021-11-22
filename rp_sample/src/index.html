@@ -3,13 +3,15 @@
 
 <head>
   <meta charset="utf-8" />
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="https://assets.inai-dev.com/checkout/v1/inai.js" type="text/javascript">
+  </script>
   <title>Ionic App</title>
 
   <base href="/" />
 
   <meta name="color-scheme" content="light dark" />
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -18,6 +20,9 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <script>
+  </script>
 </head>
 
 <body>
@@ -25,40 +30,19 @@
 </body>
 <script>
   window.addEventListener('load', () => {
-    var options = {
-      "key": "rzp_test_tceXmfKinezHgm", // Enter the Key ID generated from the Dashboard
-      "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-      "currency": "INR",
-      "name": "Acme Corp",
-      "description": "Test Transaction",
-      "callback_url": 'https://enx1twzlj43v.x.pipedream.net/sample/post',
-      "redirect": true,
-      "order_id": "order_IF5G87jgZL6VbB", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-      "handler": function (response) {
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature)
+    inai.initialize({
+      containerId: "inai-widget", // the div where the widget will show up
+      token: "284c09b5-cf6e-42b1-a3dd-84f68c7b4cd1", // as documented above
+      orderId: "a59e9eef-0074-43cb-af55-58548260915d",    // as documented above
+      styles: { // documented below
+        container: {},
+        cta: {},
+        errorText: {}
       },
-      "prefill": {
-        "name": "Girish Koundinya",
-        "email": "girish@inai.io",
-        "contact": "7299003636"
-      },
-      "notes": {
-        "address": "Razorpay Corporate Office"
-      },
-      "theme": {
-        "color": "#3399cc"
-      }
-    };
-    var rzp1 = new Razorpay(options);
-    rzp1.on('payment.failed', function (response) {
-      alert(response.error.metadata.payment_id);
+      ctaText: "Pay Now" // you can customize this
+    }).then((response) => { // discussed below
+    }).catch((error) => { // discussed below
     });
-    document.getElementById('rzp-button1').onclick = function (e) {
-      rzp1.open();
-      e.preventDefault();
-    }
   });
 </script>
 
