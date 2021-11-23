@@ -1,9 +1,9 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "rp_sample",
-	"webDir": "www",
-	"bundledWebRuntime": false,
-	"server": {
-		"url": "http://192.168.1.8:8100"
-	}
+  "appId": "com.example.app",
+  "appName": "rp_sample",
+  "webDir": "www",
+  "npmClient": "npm",
+  "server": {
+    "url": "http://10.2.238.154:8100"
+  }
 }
